@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,13 +21,31 @@ namespace MITComputerWebForm.Ajax
 
             if (Request.QueryString["action"] != null && Request.QueryString["action"].ToString() == "login")
             {
-                var Account  = new Dictionary<string, string>();
-                Account.Add("inputEmail", Request.QueryString["inputEmail"].ToString());
-                Account.Add("inputPassword", Request.QueryString["inputPassword"].ToString());
 
+                string inputEmail = Request.QueryString["inputEmail"].ToString();
 
+                string inputPassword = Request.QueryString["inputPassword"].ToString();
 
-                return JsonConvert.SerializeObject(Account, Formatting.Indented);
+                string queryString = "SELECT COUNT(*) FROM NHANVIEN WHERE email = '"+ inputEmail + "' AND password = '"+ inputPassword + "' ";
+
+                using (SqlConnection connection = new SqlConnection(share.Share.connectionString))
+                {
+                    SqlCommand command = new SqlCommand(queryString, connection);
+
+                    connection.Open();
+
+                    int isExistUser = (int)command.ExecuteScalar();
+
+                    connection.Close();
+
+                    if(isExistUser == 1)
+                    {
+                        Session["username"] = inputEmail;
+                    }
+
+                    return isExistUser.ToString();
+                }
+                    
             }
 
             return "false";
