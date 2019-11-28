@@ -8,6 +8,7 @@
     <title>Lumino - Dashboard</title>
 
     <link href="../Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Content/css/bootstrap-table.css" rel="stylesheet" />
     <link href="../Content/css/datepicker3.css" rel="stylesheet">
     <link href="../Content/css/toastr.min.css" rel="stylesheet">
     <link href="../Content/css/styles.css" rel="stylesheet">
