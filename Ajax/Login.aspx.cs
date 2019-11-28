@@ -26,7 +26,7 @@ namespace MITComputerWebForm.Ajax
 
                 string inputPassword = Request.QueryString["inputPassword"].ToString();
 
-                string queryString = "SELECT COUNT(*) FROM NHANVIEN WHERE email = '"+ inputEmail + "' AND password = '"+ inputPassword + "' ";
+                string queryString = "SELECT COUNT(*) FROM NHANVIEN WHERE email = '"+ inputEmail + "' AND password = '"+ share.Share.getMd5Hash(inputPassword) + "' ";
 
                 using (SqlConnection connection = new SqlConnection(share.Share.connectionString))
                 {
