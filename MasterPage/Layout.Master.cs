@@ -11,6 +11,7 @@ namespace MITComputerWebForm.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Session["username"] == null)
             {
                Response.Redirect("/pages/login");
@@ -28,6 +29,13 @@ namespace MITComputerWebForm.MasterPage
             }
 
             return username;
+        }
+
+        public string getActive(string page)
+        {
+            string isactive;
+            isactive = Session["page"].ToString() == page ? "active" : "";
+            return isactive;
         }
     }
 }

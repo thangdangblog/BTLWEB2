@@ -9,7 +9,6 @@
     <link href="../Content/css/toastr.min.css" rel="stylesheet">
 </head>
 <body>
-    <span><%=getEmail()%></span>
   <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -18,12 +17,12 @@
             <h5 class="card-title text-center">Sign In</h5>
             <form class="form-signin">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="email" id="inputEmail" value="thangdangblog@gmail.com" class="form-control" placeholder="Email address" required autofocus>
                 <label for="inputEmail">Email address</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="password" id="inputPassword" value="adminadmin" class="form-control" placeholder="Password" required>
                 <label for="inputPassword">Password</label>
               </div>
 

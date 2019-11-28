@@ -35,7 +35,7 @@
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
 							<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+							<li><a href="/pages/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -49,8 +49,8 @@
 				<input type="text" class="form-control" placeholder="Search">
 			</div>
 		<ul class="nav menu">
-			<li class="active"><a href="index.html"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-			<li><a href="/pages/user"><span class="glyphicon glyphicon-user"></span> Quản lý nhân viên</a></li>
+			<li class="<%= getActive("dashboard") %>"><a href="index.html"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+			<li class="<%= getActive("user") %>"><a href="/pages/user"><span class="glyphicon glyphicon-user"></span> Quản lý nhân viên</a></li>
 			<li><a href="#"><span class="glyphicon glyphicon-folder-open"></span> Quản lý danh mục</a></li>
 			<li><a href="#"><span class="glyphicon glyphicon-lock"></span> Quản lý sản phẩm</a></li>
 			<li><a href="#"><span class="glyphicon glyphicon-edit"></span> Quản lý đơn hàng</a></li>
@@ -94,6 +94,7 @@
     <script src="../Content/js/bootstrap-table.js"></script>
     <script src="../Content/js/toastr.min.js"></script>
     <script src="../Content/js/settingToast.js"></script>
+        <script src="../Content/js/ajaxhandle.js"></script>
     <script>
 		$('#calendar').datepicker({
 		});

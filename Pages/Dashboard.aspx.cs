@@ -11,7 +11,7 @@ namespace MITComputerWebForm.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Session["page"] = "dashboard";
         }
     }
 }
