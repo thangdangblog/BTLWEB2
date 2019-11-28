@@ -36,26 +36,18 @@
 						</tr>
 						</thead>
 						<tbody>
+                            <% foreach(string[] nhanvien in getAllNV()){ %>
 							<tr>
-								<td style="">1</td>
-								<td style="">Admin</td>
-								<td style="">admin@gmail.com</td>
-								<td><span class="label label-danger">Admin</span></td>
+								<td style=""><%= nhanvien[0] %></td>
+								<td style=""><%= nhanvien[1] %></td>
+								<td style=""><%= nhanvien[2] %></td>
+								<td><span class="label label-danger"><%= getRole(nhanvien[3]) %></span></td>
 								<td class="form-group">
 									<a href="index.php?page_layout=edit_user" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
 									<a href="/" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
 								</td>
 							</tr>
-							<tr>
-									<td style="">2</td>
-									<td style="">Nguyễn Văn A</td>
-									<td style="">nguyenvana@gmail.com</td>
-									<td><span class="label label-warning">Member</span></td>
-									<td class="form-group">
-										<a href="index.php?page_layout=edit_user" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
-										<a href="/" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-									</td>
-								</tr>
+                            <% } %>
 						</tbody>
 					</table>
 				</div>

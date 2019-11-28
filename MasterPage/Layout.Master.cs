@@ -13,9 +13,21 @@ namespace MITComputerWebForm.MasterPage
         {
             if (Session["username"] == null)
             {
-                //Response.Redirect("https://thangdangblog.com");
+               Response.Redirect("/pages/login");
             }
 
+        }
+
+        public string getName()
+        {
+            string username = "";
+
+            if (Session["username"] != null)
+            {
+                username = Session["username"].ToString();
+            }
+
+            return username;
         }
     }
 }
