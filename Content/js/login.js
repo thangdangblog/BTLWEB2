@@ -26,7 +26,16 @@
             },
             dataType: "",
             success: function (response) {
-                console.log(response);
+                if (response == "1") {
+                    toastr.success('Đăng nhập thành công.', 'Thông báo!');
+
+                    setTimeout(function () {
+                        window.location.href = window.location.origin;
+                    }, 1000);
+
+                } else {
+                    toastr.warning('Tài khoản mật khẩu không chính xác.', 'Thông báo!');
+                }
             }
         });
     });
