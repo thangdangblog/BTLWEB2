@@ -2,10 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentLayout" runat="server">
     
+  
+    
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="index.php">
                     Dashboard
                    </a></li>
                 <li class="active">Quản lý danh mục</li>
@@ -20,9 +21,7 @@
         </div>
         <!--/.row-->
         <div id="toolbar" class="btn-group">
-            <a href="index.php?page_layout=add_category" class="btn btn-success">
-                <i class="glyphicon glyphicon-plus"></i>Thêm danh mục
-            </a>
+           <asp:Button ID="btnAddCat" runat="server" Text="Thêm danh mục"  CssClass="btn btn-success" OnClick="btnAddCat_Click"/>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -40,19 +39,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <% foreach (string[] danhmuc in getAllCategories())
+                                    { %>
                                 <tr>
-                                    <td style="">1</td>
-                                    <td style="">Danh mục 1</td>
+                                    <td style=""><%= danhmuc[0] %></td>
+                                    <td style=""><%= danhmuc[1] %></td>
                                     <td class="form-group">
                                         <a href="index.php?page_layout=edit_category" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
                                         <a href="/" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                                     </td>
                                 </tr>
+                                <% } %>
                                 <tr>
                                     <td style="">2</td>
                                     <td style="">Danh mục 2</td>
                                     <td class="form-group">
-                                        <a href="index.php?page_layout=edit_category" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
+                                        <a href="index.php?page_layout=edit_category" class="btn btn-primary"></a>
                                         <a href="/" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                                     </td>
                                 </tr>

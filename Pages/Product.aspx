@@ -14,9 +14,8 @@
 		</div>
 	</div><!--/.row-->
 	<div id="toolbar" class="btn-group">
-		<a href="index.php?page_layout=add_product" class="btn btn-success">
-			<i class="glyphicon glyphicon-plus"></i> Thêm sản phẩm
-		</a>
+	
+        <asp:Button ID="btnAddProduct" runat="server" Text="Thêm sản phẩm"  CssClass="btn btn-success" OnClick="btnAddProduct_Click"/>
 	</div>
 	<div class="row">
 		<div class="col-lg-12">
@@ -30,28 +29,31 @@
 						<tr>
 							<th data-field="id" data-sortable="true">ID</th>
 							<th data-field="name"  data-sortable="true">Tên sản phẩm</th>
+                            <th data-field="code"  data-sortable="true">Mã sản phẩm</th>
 							<th data-field="price" data-sortable="true">Giá</th>
-							<th>Ảnh sản phẩm</th>
 							<th>Trạng thái</th>
 							<th>Danh mục</th>
 							<th>Hành động</th>
 						</tr>
 						</thead>
 						<tbody>
+                            <% foreach (string[] strProduct in getAllProduct())
+                                {%>
 								<tr>
-									<td style="">1</td>
-									<td style="">Sony VAIO Pro 13 13.3 Touchscreen Full HD Ultrabook</td>
-									<td style="">32.000.000 vnd</td>
-									<td style="text-align: center"><img width="130" height="180" src="../Content/images/products/sop13215pxs.jpg" /></td>
+									<td style=""><%= strProduct[0] %></td>
+									<td style=""><%= strProduct[2] %></td>
+									<td style=""><%= strProduct[1] %></td>
+                                    <td style=""><%= strProduct[5] %></td>
 									<td>
-										<span class="label label-success">Còn hàng</span>
+										<%=getStatus(strProduct[4]) %>
 									</td>
-									<td>Sony</td>
+									<td style=""><%= strProduct[3] %></td>
 									<td class="form-group">
 										<a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
 										<a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
 									</td>
 								</tr>
+                            <%} %>
 							 </tbody>
 					</table>
 				</div>
