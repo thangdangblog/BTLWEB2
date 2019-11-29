@@ -12,10 +12,21 @@ namespace MITComputerWebForm.Pages
 {
     public partial class AddCategory : System.Web.UI.Page
     {
+        private bool isExist = false;
         protected void Page_Load(object sender, EventArgs e)
         {
            
 
+        }
+
+        public void setIsExist(bool status)
+        {
+            this.isExist = status;
+        }
+
+        public bool getIsExist()
+        {
+            return this.isExist;
         }
 
         protected void btnAddCategory_Click(object sender, EventArgs e)
@@ -24,10 +35,6 @@ namespace MITComputerWebForm.Pages
             {
                 conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\BTL-qlibanhangweb2\BTLWEB2\App_Data\QLMIT.mdf;Integrated Security=True";
                 conn.Open();
-                //string sql = "insert into DANHMUC values(";
-                //sql += "N'" + txtCatName.Text + "')";
-                //SqlCommand cmd = new SqlCommand(sql, conn);
-                //cmd.ExecuteNonQuery();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "proInsertCat";
@@ -42,6 +49,7 @@ namespace MITComputerWebForm.Pages
                     if (dem > 0)
                     {
                         Response.Write("Danh mục đã tồn tại!");
+                        setIsExist(true);
                         txtCatName.Text = "";
                         txtCatName.Focus();
                     }
@@ -49,7 +57,13 @@ namespace MITComputerWebForm.Pages
                     {
                         cmd.ExecuteNonQuery();
                         Response.Write("<script LANGUAGE='JavaScript'> alert('Thêm danh mục thành công)</script>");
+<<<<<<< HEAD
+
                         Response.Redirect("Category.aspx");
+                        
+=======
+                        Response.Redirect("Category.aspx");
+>>>>>>> 8321d97d3d013da382e7ce2a927388b7a023b642
                     }
                 }
                 catch (Exception)

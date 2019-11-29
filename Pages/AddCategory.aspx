@@ -19,7 +19,10 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="col-md-8">
+                        <%if (getIsExist())
+                            { %>
 						<div class="alert alert-danger box">Danh mục đã tồn tại !</div>
+                        <% } %>
 						<form role="form" method="post">
 						<div class="form-group">
 							<label>Tên danh mục:</label>
