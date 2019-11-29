@@ -15,7 +15,7 @@ namespace MITComputerWebForm.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["page"] = "product";
         }
         protected static ArrayList getAllProduct()
         {
@@ -23,7 +23,7 @@ namespace MITComputerWebForm.Pages
             //Khai báo mở kết nối đến CSDL
             using (SqlConnection conn = new SqlConnection())
             {
-                conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\BTL-qlibanhangweb2\BTLWEB2\App_Data\QLMIT.mdf;Integrated Security=True";
+                conn.ConnectionString = share.Share.connectionString;
                 conn.Open();
                 string querystring = "SELECT * FROM SANPHAM";
                 SqlCommand command = new SqlCommand(querystring, conn);
