@@ -53,15 +53,15 @@
 
         });
 
-        
-       
-       
+
+
+
     });
 
     //Xóa nhân viên
     $(".xoa_nv").click(function (e) {
         e.preventDefault();
-        let id_user = $(this).attr("data-nhanvien"); 
+        let id_user = $(this).attr("data-nhanvien");
         let name_user = $(this).attr("data-name");
         $(".nv_name").text(name_user);
         $("#modeldelete").modal();
@@ -80,7 +80,7 @@
                         $("#modeldelete").modal('hide');
                         toastr.remove();
                         toastr.success('Xóa thành công.', 'Thông báo!');
-                        
+
                         setTimeout(function () {
                             window.location.reload();
                         }, 1000);
@@ -132,6 +132,62 @@
             });
         });
     });
+
+    //Cập nhật dữ liệu nhân viên
+    $("#btn-themdonhang").click(function (e) {
+        e.preventDefault();
+
+        $("#modeladddh").modal();
+
+        options = $("#nameChange option")
+
+        $("#nameChange").change(function () {
+            id = $("#nameChange").val();
+
+            for (let i = 0; i < options.length; i++) {
+                if ($(options[i]).val() == id) {
+                    masanpham = $(options[i]).attr("data-masanpham");
+                    $("#gia_donhang").val($(options[i]).attr("data-money") * 1);
+                    $(".totalMoney").text(($(options[i]).attr("data-money") * 1) + " VNĐ");
+                }
+            }
+        });
+
+        $("#soluong_donhang").change(function () {
+            number = $("#soluong_donhang").val();
+            $(".totalMoney").text(($("#gia_donhang").val() * number) + " VNĐ");
+        });
+
+        $("#them_don_hang").click(() => {
+            $.ajax({
+                type: "GET",
+                url: "/Ajax/addNV.aspx",
+                data: {
+                    action: "them_don_hang",
+                    masanpham: masanpham,
+                    manhanvien: 5,
+                    soluong: $("#soluong_donhang").val(),
+                    namekhachhang: $("#namekh").val(),
+                    sodienthoai: $("#sdtkh").val(),
+                },
+                dataType: "",
+                success: function (response) {
+                    if (response == 1) {
+                        $("#modeladddh").modal('hide');
+                        toastr.remove();
+                        toastr.success('Cập nhật thành công.', 'Thông báo!');
+
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    } else {
+                        toastr.warning('Lỗi hệ thống.', 'Thông báo!');
+                    }
+                }
+            });
+        });
+    });
+
 });
 
 

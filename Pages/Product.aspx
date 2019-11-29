@@ -37,23 +37,7 @@
 						</tr>
 						</thead>
 						<tbody>
-                            <% foreach (string[] strProduct in getAllProduct())
-                                {%>
-								<tr>
-									<td style=""><%= strProduct[0] %></td>
-									<td style=""><%= strProduct[2] %></td>
-									<td style=""><%= strProduct[1] %></td>
-                                    <td style=""><%= strProduct[5] %></td>
-									<td>
-										<%=getStatus(strProduct[4]) %>
-									</td>
-									<td style=""><%= strProduct[3] %></td>
-									<td class="form-group">
-										<a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
-										<a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-									</td>
-								</tr>
-                            <%} %>
+                           
 							 </tbody>
 					</table>
 				</div>

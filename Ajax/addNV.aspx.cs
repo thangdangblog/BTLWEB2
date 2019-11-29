@@ -103,6 +103,35 @@ namespace MITComputerWebForm.Ajax
                 }
             }
 
+            if (Request.QueryString["action"] != null && Request.QueryString["action"].ToString() == "them_don_hang")
+            {
+
+                string masanpham = Request.QueryString["masanpham"].ToString();
+                string manhanvien = Request.QueryString["manhanvien"].ToString();
+                string soluong = Request.QueryString["soluong"].ToString();
+                string namekhachhang = Request.QueryString["namekhachhang"].ToString();
+                string sodienthoai = Request.QueryString["sodienthoai"].ToString();
+                
+                string queryString = "";
+                DateTime dateTime = DateTime.UtcNow.Date;
+                queryString = "INSERT INTO DONHANG (manhanvien,masanpham,tenkhanhhang,sodienthoai,soluong) VALUES ('"+ manhanvien + "','"+ masanpham + "',N'" + namekhachhang + "','"+ sodienthoai + "','"+ soluong + "')";
+               
+
+
+                using (SqlConnection connection = new SqlConnection(share.Share.connectionString))
+                {
+                    SqlCommand command = new SqlCommand(queryString, connection);
+
+                    connection.Open();
+
+                    string result = command.ExecuteNonQuery().ToString();
+
+                    connection.Close();
+
+                    return result;
+                }
+            }
+
             return "false";
         }
 
