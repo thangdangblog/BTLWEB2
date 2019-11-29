@@ -6,11 +6,10 @@
     
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="row">
-            <ol class="breadcrumb">
-                    Dashboard
-                   </a></li>
-                <li class="active">Quản lý danh mục</li>
-            </ol>
+           <ol class="breadcrumb">
+			<li><a href="index.php">Dashboard</a></li>
+			<li><a href="index.php?page_layout=category">Quản lý danh mục</a></li>
+		    </ol>
         </div>
         <!--/.row-->
 
@@ -45,19 +44,17 @@
                                     <td style=""><%= danhmuc[0] %></td>
                                     <td style=""><%= danhmuc[1] %></td>
                                     <td class="form-group">
-                                        <a href="index.php?page_layout=edit_category" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
-                                        <a href="/" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                                        <a href="editcategory.aspx?id=<%=danhmuc[0]%>" class="btn btn-primary">
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                        </a>
+
+                                        <a href="deletecategory.aspx?id=<%=danhmuc[0]%>" class="btn btn-danger">
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 <% } %>
-                                <tr>
-                                    <td style="">2</td>
-                                    <td style="">Danh mục 2</td>
-                                    <td class="form-group">
-                                        <a href="index.php?page_layout=edit_category" class="btn btn-primary"></a>
-                                        <a href="/" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                                    </td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>

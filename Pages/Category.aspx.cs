@@ -12,10 +12,22 @@ namespace MITComputerWebForm.Pages
 {
     public partial class Category : System.Web.UI.Page
     {
+        private bool isSucces = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             
 
+        }
+        
+        
+        public void setIsSucces(bool status)
+        {
+            this.isSucces = status;
+        }
+
+        public bool getIsSucces( )
+        {
+            return this.isSucces;
         }
 
         public static ArrayList getAllCategories()
@@ -40,12 +52,12 @@ namespace MITComputerWebForm.Pages
                         String[] strCategory = new string[2];
                         strCategory[0] = datareader[0].ToString();
                         strCategory[1] = datareader[1].ToString();
-
                         Category.Add(strCategory);
+
                     }
                     
                 }
-                
+
 
                 conn.Close();
             }
@@ -56,6 +68,8 @@ namespace MITComputerWebForm.Pages
         protected void btnAddCat_Click(object sender, EventArgs e)
         {
             Response.Redirect("AddCategory.aspx");
+
+
         }
     }
 }
