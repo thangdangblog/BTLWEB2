@@ -57,9 +57,13 @@ namespace MITComputerWebForm.Pages
                     {
                         cmd.ExecuteNonQuery();
                         Response.Write("<script LANGUAGE='JavaScript'> alert('Thêm danh mục thành công)</script>");
+<<<<<<< HEAD
 
                         Response.Redirect("Category.aspx");
                         
+=======
+                        Response.Redirect("Category.aspx");
+>>>>>>> 8321d97d3d013da382e7ce2a927388b7a023b642
                     }
                 }
                 catch (Exception)

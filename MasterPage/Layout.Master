@@ -51,8 +51,8 @@
 		<ul class="nav menu">
 			<li class="<%= getActive("dashboard") %>"><a href="index.html"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
 			<li class="<%= getActive("user") %>"><a href="/pages/user"><span class="glyphicon glyphicon-user"></span> Quản lý nhân viên</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-folder-open"></span> Quản lý danh mục</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-lock"></span> Quản lý sản phẩm</a></li>
+			<li class="<%= getActive("category") %>"><a href="/pages/category"><span class="glyphicon glyphicon-folder-open"></span> Quản lý danh mục</a></li>
+			<li class="<%= getActive("product") %>"><a href="/pages/product"><span class="glyphicon glyphicon-lock"></span> Quản lý sản phẩm</a></li>
 			<li><a href="#"><span class="glyphicon glyphicon-edit"></span> Quản lý đơn hàng</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Quản lý khách hàng</a></li>
 
